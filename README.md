@@ -164,3 +164,19 @@ Responsible Use
 
 TRACEGUARD is an educational security investigation project that uses synthetic logs. Its alerts identify patterns matching the implemented detection rules and do not establish that a real security compromise occurred. Replay results depend on the available evidence and current detection logic.
 
+
+
+\---
+
+
+
+\## Dashboard Preview
+
+
+
+The following screenshot shows the TRACEGUARD interactive security investigation dashboard.
+
+
+
+!\[TRACEGUARD Dashboard Preview](reports/dashboard\_full.png)
+
