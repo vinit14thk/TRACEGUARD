@@ -10,6 +10,7 @@ SCRIPTS = [
     ("Evaluation", "src/evaluation.py"),
     ("Evidence Graph Visualization", "src/visualize_graph.py"),
     ("Incident Report", "src/incident_report.py"),
+    ("Investigation Replay", "src/investigation_replay.py"),
 ]
 
 
@@ -22,9 +23,9 @@ def main():
     for title, script in SCRIPTS:
         script_path = ROOT / script
 
-        print("\n" + "=" * 55)
-        print(title)
-        print("=" * 55)
+        print("\n" + "=" * 55, flush=True)
+        print(title, flush=True)
+        print("=" * 55, flush=True)
 
         if not script_path.exists():
             print("ERROR: Missing script:", script)
@@ -42,6 +43,7 @@ def main():
     print("\n" + "=" * 55)
     print("TRACEGUARD RUN COMPLETED SUCCESSFULLY")
     print("=" * 55)
+
     return 0
 
 

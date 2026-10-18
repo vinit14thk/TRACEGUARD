@@ -1,0 +1,76 @@
+{
+    "report_title": "TRACEGUARD Investigation Replay Comparison",
+    "source_dataset": "data/raw/security_events.csv",
+    "original_dataset_modified": false,
+    "baseline": {
+        "events_reviewed": 10,
+        "alerts_generated": 4
+    },
+    "experiments": [
+        {
+            "name": "Remove EVT004",
+            "events_remaining": 9,
+            "original_alert_count": 4,
+            "replayed_alert_count": 3,
+            "alerts_disappeared": [
+                [
+                    "repeated_failed_logins",
+                    "high",
+                    "alice",
+                    [
+                        "EVT003",
+                        "EVT004",
+                        "EVT005"
+                    ]
+                ],
+                [
+                    "success_after_repeated_failures",
+                    "high",
+                    "alice",
+                    [
+                        "EVT003",
+                        "EVT004",
+                        "EVT005",
+                        "EVT006"
+                    ]
+                ]
+            ],
+            "alerts_appeared": [
+                [
+                    "repeated_failed_logins",
+                    "medium",
+                    "alice",
+                    [
+                        "EVT003",
+                        "EVT005"
+                    ]
+                ]
+            ]
+        },
+        {
+            "name": "Delay EVT006 by five minutes",
+            "events_remaining": 10,
+            "original_alert_count": 4,
+            "replayed_alert_count": 3,
+            "alerts_disappeared": [
+                [
+                    "success_after_repeated_failures",
+                    "high",
+                    "alice",
+                    [
+                        "EVT003",
+                        "EVT004",
+                        "EVT005",
+                        "EVT006"
+                    ]
+                ]
+            ],
+            "alerts_appeared": []
+        }
+    ],
+    "limitations": [
+        "The dataset contains synthetic events only.",
+        "Changed alert signatures do not prove a real security incident.",
+        "Results depend on the current detection rules."
+    ]
+}
