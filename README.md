@@ -1,6 +1,8 @@
-\# TRACEGUARD
+TRACEGUARD
 
-\### An Evidence-First, Replayable Security Investigation Toolkit
+
+
+An Evidence-First, Replayable Security Investigation Toolkit
 
 
 
@@ -12,29 +14,29 @@ The project emphasizes traceability, testability, and transparent limitations ra
 
 
 
-\## Features
+Features
 
 
 
-\- \*Rule-Based Detection:\* Identifies repeated failed logins, successful logins after repeated failures, and events involving a configured suspicious process.
+\- Rule-Based Detection: Identifies repeated failed logins, successful logins after repeated failures, and events involving a configured suspicious process.
 
-\- \*Evidence Graph:\* Connects security events to users, source IP addresses, and devices using NetworkX.
+\- Evidence Graph: Connects security events to users, source IP addresses, and devices using NetworkX.
 
-\- \*Time-Aware Investigation:\* Finds related events within a configurable time window.
+\- Time-Aware Investigation: Finds related events within a configurable time window.
 
-\- \*Incident Reporting:\* Generates a structured JSON report containing alert details and supporting event references.
+\- Incident Reporting: Generates a structured JSON report containing alert details and supporting event references.
 
-\- \*Evidence Validation:\* Checks that cited event IDs exist in the source dataset and match the report's evidence details.
+\- Evidence Validation: Checks that cited event IDs exist in the source dataset and match the report's evidence details.
 
-\- \*Evaluation:\* Calculates event-level precision, recall, and F1 score against synthetic test labels.
+\- Evaluation: Calculates event-level precision, recall, and F1 score against synthetic test labels.
 
-\- \*Automated Tests:\* Uses Python's unittest framework to test detection, graph relationships, and report validation.
+\- Automated Tests: Uses Python's unittest framework to test detection, graph relationships, and report validation.
 
-\- \*Visualization:\* Produces a graph image for exploring relationships between events and entities.
+\- Visualization: Produces a graph image for exploring relationships between events and entities.
 
 
 
-\## Technology Stack
+Technology Stack
 
 
 
@@ -46,17 +48,15 @@ The project emphasizes traceability, testability, and transparent limitations ra
 
 \- Matplotlib
 
-\- SQLite (planned for further investigation workflows)
+\- Streamlit
 
 \- unittest
 
 
 
-\## Project Structure
+Project Structure
 
 
-
-```text
 
 TRACEGUARD/
 
@@ -74,11 +74,15 @@ TRACEGUARD/
 
 ├── reports/
 
+│   ├── dashboard\_full.png
+
 │   ├── evidence\_graph.png
 
 │   └── incident\_report.json
 
 ├── src/
+
+│   ├── dashboard.py
 
 │   ├── detection\_engine.py
 
@@ -88,6 +92,8 @@ TRACEGUARD/
 
 │   ├── incident\_report.py
 
+│   ├── investigation\_replay.py
+
 │   └── visualize\_graph.py
 
 ├── tests/
@@ -96,15 +102,17 @@ TRACEGUARD/
 
 │   ├── test\_evidence\_graph.py
 
-│   └── test\_incident\_report.py
+│   ├── test\_incident\_report.py
+
+│   └── test\_investigation\_replay.py
 
 ├── generate\_logs.py
 
 ├── generate\_test\_logs.py
 
-└── run\_traceguard.py
+├── requirements.txt
 
-```
+└── run\_traceguard.py
 
 
 
@@ -112,7 +120,7 @@ TRACEGUARD/
 
 
 
-\## Interactive Streamlit Dashboard
+Interactive Streamlit Dashboard
 
 
 
@@ -120,27 +128,25 @@ TRACEGUARD includes an interactive web dashboard for exploring security events, 
 
 
 
-\### Dashboard Features
+Dashboard Features
 
 
 
-\- \*Security Overview:\* View event counts and generated alerts.
+\- Security Overview: View event counts and generated alerts.
 
-\- \*Alert Explorer:\* Filter alerts by severity and inspect their evidence.
+\- Alert Explorer: Filter alerts by severity and inspect their evidence.
 
-\- \*Event Explorer:\* Search security logs by user, event type, and event ID.
+\- Event Explorer: Search security logs by user, event type, and event ID.
 
-\- \*Incident Investigation:\* Inspect alerts and their supporting event evidence.
+\- Incident Investigation: Inspect alerts and their supporting event evidence.
 
-\- \*Investigation Replay:\* Compare alert changes after removing or delaying events.
+\- Investigation Replay: Compare alert changes after removing or delaying events.
 
-\- \*Visual Analytics:\* Explore alert severity using charts.
-
-
+\- Visual Analytics: Explore alert severity using charts.
 
 
 
-\### Run the Dashboard on Windows
+Run the Dashboard on Windows
 
 
 
@@ -152,13 +158,45 @@ TRACEGUARD includes an interactive web dashboard for exploring security events, 
 
 
 
-&#x20;  ```powershell
-
-&#x20;  py -3.13 -m venv .venv
-
-```
+py -3.13 -m venv .venv
 
 
+
+3\. Install the dependencies:
+
+
+
+.\\.venv\\Scripts\\python.exe -m pip install -r requirements.txt
+
+
+
+4\. Generate the synthetic security datasets:
+
+
+
+.\\.venv\\Scripts\\python.exe generate\_logs.py
+
+.\\.venv\\Scripts\\python.exe generate\_test\_logs.py
+
+
+
+5\. Run the complete workflow:
+
+
+
+.\\.venv\\Scripts\\python.exe run\_traceguard.py
+
+
+
+6\. Launch the dashboard:
+
+
+
+.\\.venv\\Scripts\\python.exe -m streamlit run src/dashboard.py
+
+
+
+7\. Open the local URL displayed in the terminal, usually "http://localhost:8501".
 
 
 
@@ -174,7 +212,7 @@ TRACEGUARD is an educational security investigation project that uses synthetic 
 
 
 
-\## Dashboard Preview
+Dashboard Preview
 
 
 
