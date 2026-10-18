@@ -136,6 +136,8 @@ TRACEGUARD includes an interactive web dashboard for exploring security events, 
 
 
 
+
+
 \### Run the Dashboard on Windows
 
 
@@ -151,4 +153,14 @@ TRACEGUARD includes an interactive web dashboard for exploring security events, 
 &#x20;  ```powershell
 
 &#x20;  py -3.13 -m venv .venv
+
+
+
+
+
+Responsible Use
+
+
+
+TRACEGUARD is an educational security investigation project that uses synthetic logs. Its alerts identify patterns matching the implemented detection rules and do not establish that a real security compromise occurred. Replay results depend on the available evidence and current detection logic.
 
