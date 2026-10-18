@@ -104,3 +104,51 @@ TRACEGUARD/
 
 └── run\_traceguard.py
 
+
+
+\---
+
+
+
+\## Interactive Streamlit Dashboard
+
+
+
+TRACEGUARD includes an interactive web dashboard for exploring security events, generated alerts, incident evidence, and investigation replay results.
+
+
+
+\### Dashboard Features
+
+
+
+\- \*Security Overview:\* View event counts and generated alerts.
+
+\- \*Alert Explorer:\* Filter alerts by severity and inspect their evidence.
+
+\- \*Event Explorer:\* Search security logs by user, event type, and event ID.
+
+\- \*Incident Investigation:\* Inspect alerts and their supporting event evidence.
+
+\- \*Investigation Replay:\* Compare alert changes after removing or delaying events.
+
+\- \*Visual Analytics:\* Explore alert severity using charts.
+
+
+
+\### Run the Dashboard on Windows
+
+
+
+1\. Clone or download this repository and open PowerShell in the project folder.
+
+
+
+2\. Create a virtual environment using Python 3.13:
+
+
+
+&#x20;  ```powershell
+
+&#x20;  py -3.13 -m venv .venv
+
