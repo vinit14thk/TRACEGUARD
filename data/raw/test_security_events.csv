@@ -1,0 +1,8 @@
+event_id,timestamp,user,source_ip,device,event_type,status,process,ground_truth
+TST001,2026-10-18 09:00:00,alice,10.0.0.12,LAPTOP-01,login,success,,normal
+TST002,2026-10-18 09:05:00,bob,198.51.100.20,UNKNOWN-03,login,failed,,normal
+TST003,2026-10-18 09:10:00,carol,198.51.100.30,UNKNOWN-04,login,failed,,normal
+TST004,2026-10-18 09:16:00,carol,198.51.100.30,UNKNOWN-04,login,failed,,normal
+TST005,2026-10-18 09:20:00,david,198.51.100.40,UNKNOWN-05,login,failed,,suspicious
+TST006,2026-10-18 09:22:00,david,198.51.100.40,UNKNOWN-05,login,failed,,suspicious
+TST007,2026-10-18 09:30:00,erin,203.0.113.70,UNKNOWN-06,process,observed,unknown_script,suspicious

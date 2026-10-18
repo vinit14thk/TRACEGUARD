@@ -1,0 +1,166 @@
+{
+  "report_title": "TRACEGUARD Security Investigation Report",
+  "events_reviewed": 10,
+  "alerts_generated": 4,
+  "alerts": [
+    {
+      "alert_type": "repeated_failed_logins",
+      "severity": "high",
+      "user": "alice",
+      "source_ip": "203.0.113.50",
+      "reason": "3 failed login attempts within five minutes",
+      "evidence": [
+        {
+          "event_id": "EVT003",
+          "timestamp": "2026-10-18T08:10:00",
+          "user": "alice",
+          "source_ip": "203.0.113.50",
+          "device": "UNKNOWN-01",
+          "event_type": "login",
+          "status": "failed",
+          "process": "nan"
+        },
+        {
+          "event_id": "EVT004",
+          "timestamp": "2026-10-18T08:10:20",
+          "user": "alice",
+          "source_ip": "203.0.113.50",
+          "device": "UNKNOWN-01",
+          "event_type": "login",
+          "status": "failed",
+          "process": "nan"
+        },
+        {
+          "event_id": "EVT005",
+          "timestamp": "2026-10-18T08:10:40",
+          "user": "alice",
+          "source_ip": "203.0.113.50",
+          "device": "UNKNOWN-01",
+          "event_type": "login",
+          "status": "failed",
+          "process": "nan"
+        }
+      ],
+      "evidence_ids": [
+        "EVT003",
+        "EVT004",
+        "EVT005"
+      ]
+    },
+    {
+      "alert_type": "repeated_failed_logins",
+      "severity": "medium",
+      "user": "bob",
+      "source_ip": "198.51.100.77",
+      "reason": "2 failed login attempts within five minutes",
+      "evidence": [
+        {
+          "event_id": "EVT009",
+          "timestamp": "2026-10-18T08:25:00",
+          "user": "bob",
+          "source_ip": "198.51.100.77",
+          "device": "UNKNOWN-02",
+          "event_type": "login",
+          "status": "failed",
+          "process": "nan"
+        },
+        {
+          "event_id": "EVT010",
+          "timestamp": "2026-10-18T08:25:15",
+          "user": "bob",
+          "source_ip": "198.51.100.77",
+          "device": "UNKNOWN-02",
+          "event_type": "login",
+          "status": "failed",
+          "process": "nan"
+        }
+      ],
+      "evidence_ids": [
+        "EVT009",
+        "EVT010"
+      ]
+    },
+    {
+      "alert_type": "success_after_repeated_failures",
+      "severity": "high",
+      "user": "alice",
+      "source_ip": "203.0.113.50",
+      "reason": "Successful login followed at least three failed attempts within five minutes",
+      "evidence": [
+        {
+          "event_id": "EVT003",
+          "timestamp": "2026-10-18T08:10:00",
+          "user": "alice",
+          "source_ip": "203.0.113.50",
+          "device": "UNKNOWN-01",
+          "event_type": "login",
+          "status": "failed",
+          "process": "nan"
+        },
+        {
+          "event_id": "EVT004",
+          "timestamp": "2026-10-18T08:10:20",
+          "user": "alice",
+          "source_ip": "203.0.113.50",
+          "device": "UNKNOWN-01",
+          "event_type": "login",
+          "status": "failed",
+          "process": "nan"
+        },
+        {
+          "event_id": "EVT005",
+          "timestamp": "2026-10-18T08:10:40",
+          "user": "alice",
+          "source_ip": "203.0.113.50",
+          "device": "UNKNOWN-01",
+          "event_type": "login",
+          "status": "failed",
+          "process": "nan"
+        },
+        {
+          "event_id": "EVT006",
+          "timestamp": "2026-10-18T08:11:00",
+          "user": "alice",
+          "source_ip": "203.0.113.50",
+          "device": "UNKNOWN-01",
+          "event_type": "login",
+          "status": "success",
+          "process": "nan"
+        }
+      ],
+      "evidence_ids": [
+        "EVT003",
+        "EVT004",
+        "EVT005",
+        "EVT006"
+      ]
+    },
+    {
+      "alert_type": "unrecognized_process",
+      "severity": "medium",
+      "user": "alice",
+      "source_ip": "203.0.113.50",
+      "reason": "Process name matched the lab's suspicious-process rule",
+      "evidence": [
+        {
+          "event_id": "EVT007",
+          "timestamp": "2026-10-18T08:14:00",
+          "user": "alice",
+          "source_ip": "203.0.113.50",
+          "device": "UNKNOWN-01",
+          "event_type": "process",
+          "status": "observed",
+          "process": "unknown_script"
+        }
+      ],
+      "evidence_ids": [
+        "EVT007"
+      ]
+    }
+  ],
+  "limitations": [
+    "This report uses synthetic security events.",
+    "An alert indicates suspicious patterns, not proof of compromise.",
+    "Conclusions are limited to the available event evidence."
+  ]
+}

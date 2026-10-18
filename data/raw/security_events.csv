@@ -1,0 +1,11 @@
+event_id,timestamp,event_type,user,source_ip,device,process,status,ground_truth
+EVT001,2026-10-18T08:00:00,login,alice,10.0.0.12,LAPTOP-01,,success,normal
+EVT002,2026-10-18T08:03:00,login,bob,10.0.0.15,LAPTOP-02,,success,normal
+EVT003,2026-10-18T08:10:00,login,alice,203.0.113.50,UNKNOWN-01,,failed,suspicious
+EVT004,2026-10-18T08:10:20,login,alice,203.0.113.50,UNKNOWN-01,,failed,suspicious
+EVT005,2026-10-18T08:10:40,login,alice,203.0.113.50,UNKNOWN-01,,failed,suspicious
+EVT006,2026-10-18T08:11:00,login,alice,203.0.113.50,UNKNOWN-01,,success,suspicious
+EVT007,2026-10-18T08:14:00,process,alice,203.0.113.50,UNKNOWN-01,unknown_script,observed,suspicious
+EVT008,2026-10-18T08:20:00,login,carol,10.0.0.22,LAPTOP-03,,success,normal
+EVT009,2026-10-18T08:25:00,login,bob,198.51.100.77,UNKNOWN-02,,failed,suspicious
+EVT010,2026-10-18T08:25:15,login,bob,198.51.100.77,UNKNOWN-02,,failed,suspicious
