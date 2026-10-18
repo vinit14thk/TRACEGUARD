@@ -208,17 +208,11 @@ TRACEGUARD is an educational security investigation project that uses synthetic 
 
 
 
-\---
+---
 
-
-
-Dashboard Preview
-
-
+## Dashboard Preview
 
 The following screenshot shows the TRACEGUARD interactive security investigation dashboard.
 
-
-
-!\[TRACEGUARD Dashboard Preview](reports/dashboard\_full.png)
+![TRACEGUARD Dashboard Preview](reports/dashboard_full.png)
 
