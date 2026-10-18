@@ -1,218 +1,122 @@
 TRACEGUARD
 
-
-
 An Evidence-First, Replayable Security Investigation Toolkit
 
+TRACEGUARD is a Python-based security investigation toolkit that analyzes synthetic security logs, identifies patterns matching configurable detection rules, connects related events through an evidence graph, and generates structured incident reports.
 
+The project focuses on transparent detection, traceable evidence, repeatable investigation, and clear limitations. An alert indicates a pattern that matches a rule; it does not prove that a real security breach occurred.
 
-TRACEGUARD is a Python-based security investigation project that analyzes synthetic security logs, detects suspicious activity, connects related events through an evidence graph, and generates evidence-backed incident reports.
+Key Features
 
-
-
-The project emphasizes traceability, testability, and transparent limitations rather than treating an alert as proof of a security breach.
-
-
-
-Features
-
-
-
-\- Rule-Based Detection: Identifies repeated failed logins, successful logins after repeated failures, and events involving a configured suspicious process.
-
-\- Evidence Graph: Connects security events to users, source IP addresses, and devices using NetworkX.
-
-\- Time-Aware Investigation: Finds related events within a configurable time window.
-
-\- Incident Reporting: Generates a structured JSON report containing alert details and supporting event references.
-
-\- Evidence Validation: Checks that cited event IDs exist in the source dataset and match the report's evidence details.
-
-\- Evaluation: Calculates event-level precision, recall, and F1 score against synthetic test labels.
-
-\- Automated Tests: Uses Python's unittest framework to test detection, graph relationships, and report validation.
-
-\- Visualization: Produces a graph image for exploring relationships between events and entities.
-
-
+- Rule-Based Detection: Flags repeated failed logins, successful logins following repeated failures, and events involving configured suspicious processes.
+- Evidence Graph: Uses NetworkX to connect events with users, source IP addresses, and devices.
+- Time-Aware Investigation: Examines related events within a configurable time window.
+- Incident Reporting: Generates structured JSON reports containing alert details and supporting event references.
+- Evidence Validation: Checks cited event IDs and their details against the source dataset.
+- Investigation Replay: Examines how changes to available events, such as removing or delaying events, affect generated alerts.
+- Evaluation: Calculates event-level precision, recall, and F1 score against synthetic test labels.
+- Automated Tests: Uses Python's "unittest" framework to test detection logic, graph relationships, and incident-report validation.
+- Visualization: Creates graph visualizations and provides an interactive Streamlit dashboard for investigation.
 
 Technology Stack
 
-
-
-\- Python
-
-\- Pandas
-
-\- NetworkX
-
-\- Matplotlib
-
-\- Streamlit
-
-\- unittest
-
-
-
-Project Structure
-
-
-
-TRACEGUARD/
-
-├── data/
-
-│   ├── raw/
-
-│   │   ├── security\_events.csv
-
-│   │   └── test\_security\_events.csv
-
-│   └── processed/
-
-├── docs/
-
-├── reports/
-
-│   ├── dashboard\_full.png
-
-│   ├── evidence\_graph.png
-
-│   └── incident\_report.json
-
-├── src/
-
-│   ├── dashboard.py
-
-│   ├── detection\_engine.py
-
-│   ├── evaluation.py
-
-│   ├── evidence\_graph.py
-
-│   ├── incident\_report.py
-
-│   ├── investigation\_replay.py
-
-│   └── visualize\_graph.py
-
-├── tests/
-
-│   ├── test\_detection\_engine.py
-
-│   ├── test\_evidence\_graph.py
-
-│   ├── test\_incident\_report.py
-
-│   └── test\_investigation\_replay.py
-
-├── generate\_logs.py
-
-├── generate\_test\_logs.py
-
-├── requirements.txt
-
-└── run\_traceguard.py
-
-
-
-\---
-
-
-
-Interactive Streamlit Dashboard
-
-
-
-TRACEGUARD includes an interactive web dashboard for exploring security events, generated alerts, incident evidence, and investigation replay results.
-
-
-
-Dashboard Features
-
-
-
-\- Security Overview: View event counts and generated alerts.
-
-\- Alert Explorer: Filter alerts by severity and inspect their evidence.
-
-\- Event Explorer: Search security logs by user, event type, and event ID.
-
-\- Incident Investigation: Inspect alerts and their supporting event evidence.
-
-\- Investigation Replay: Compare alert changes after removing or delaying events.
-
-\- Visual Analytics: Explore alert severity using charts.
-
-
-
-Run the Dashboard on Windows
-
-
-
-1\. Clone or download this repository and open PowerShell in the project folder.
-
-
-
-2\. Create a virtual environment using Python 3.13:
-
-
-
-py -3.13 -m venv .venv
-
-
-
-3\. Install the dependencies:
-
-
-
-.\\.venv\\Scripts\\python.exe -m pip install -r requirements.txt
-
-
-
-4\. Generate the synthetic security datasets:
-
-
-
-.\\.venv\\Scripts\\python.exe generate\_logs.py
-
-.\\.venv\\Scripts\\python.exe generate\_test\_logs.py
-
-
-
-5\. Run the complete workflow:
-
-
-
-.\\.venv\\Scripts\\python.exe run\_traceguard.py
-
-
-
-6\. Launch the dashboard:
-
-
-
-.\\.venv\\Scripts\\python.exe -m streamlit run src/dashboard.py
-
-
-
-7\. Open the local URL displayed in the terminal, usually "http://localhost:8501".
-
-
-
-Responsible Use
-
-
-
-TRACEGUARD is an educational security investigation project that uses synthetic logs. Its alerts identify patterns matching the implemented detection rules and do not establish that a real security compromise occurred. Replay results depend on the available evidence and current detection logic.
-
-
-
----
-
-## Dashboard Preview
-
-The following screenshot shows the TRACEGUARD interactive security investigation dashboard.
+- Python
+- Pandas
+- NetworkX
+- Matplotlib
+- Streamlit
+- unittest
+
+Dashboard Preview
+
+The screenshot below shows the TRACEGUARD investigation dashboard.
 
 ![TRACEGUARD Dashboard Preview](reports/dashboard_full.png)
 
+Project Structure
+
+TRACEGUARD/
+├── data/
+│   ├── raw/
+│   │   ├── security_events.csv
+│   │   └── test_security_events.csv
+│   └── processed/
+├── reports/
+│   ├── dashboard_full.png
+│   ├── evidence_graph.png
+│   └── incident_report.json
+├── src/
+│   ├── detection_engine.py
+│   ├── evaluation.py
+│   ├── evidence_graph.py
+│   ├── incident_report.py
+│   ├── investigation_replay.py
+│   └── visualize_graph.py
+├── tests/
+│   ├── test_detection_engine.py
+│   ├── test_evidence_graph.py
+│   └── test_incident_report.py
+├── generate_logs.py
+├── generate_test_logs.py
+├── requirements.txt
+└── run_traceguard.py
+
+Getting Started on Windows
+
+Requirements
+
+- Python 3.13
+- pip
+
+1. Download the repository
+
+Clone the repository or download it as a ZIP file and extract it. Open PowerShell in the project folder.
+
+2. Create a virtual environment
+
+py -3.13 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+If Python 3.13 is not installed, install a compatible Python version and adjust the commands accordingly.
+
+3. Install dependencies
+
+python -m pip install -r requirements.txt
+
+4. Generate the synthetic security logs
+
+python generate_logs.py
+python generate_test_logs.py
+
+5. Run the investigation workflow
+
+python run_traceguard.py
+
+The runner executes the detection, evaluation, evidence-graph visualization, incident-report, and investigation-replay scripts in sequence.
+
+6. Launch the interactive dashboard
+
+python -m streamlit run src/dashboard.py
+
+If the dashboard file has a different name or location in your local project, use the actual dashboard script path.
+
+Responsible Use and Limitations
+
+TRACEGUARD is an educational project that uses synthetic security logs. Its rule-based alerts identify patterns matching the implemented detection logic; they do not establish that a real compromise occurred. Evaluation results depend on the synthetic labels and test cases provided. They should not be interpreted as proof of real-world detection performance.
+
+Use the project for learning, testing, and authorized defensive investigation.
+
+Future Improvements
+
+- Expand test coverage with additional edge cases.
+- Evaluate detection rules on larger and more varied datasets.
+- Improve configuration and documentation for investigation workflows.
+- Explore additional detection rules while preserving explainable evidence.
+
+Author
+
+Vineet Thakran
+
+Developed as a Python cybersecurity and data-analysis portfolio project.
+
+GitHub: "@vinit14thk" (https://github.com/vinit14thk)
