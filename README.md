@@ -6,6 +6,16 @@ TRACEGUARD is a Python-based security investigation toolkit that analyzes synthe
 
 The project focuses on transparent detection, traceable evidence, repeatable investigation, and clear limitations. An alert indicates a pattern that matches a rule; it does not prove that a real security breach occurred.
 
+## Live Demo
+
+*Try TRACEGUARD:* https://traceguard-cyber.streamlit.app/
+
+*Source Code:* https://github.com/vinit14thk/TRACEGUARD
+
+Explore the interactive security investigation dashboard using
+synthetic security logs. TRACEGUARD demonstrates rule-based threat
+detection, evidence-based investigation, and incident reporting.
+
 Key Features
 
 - Rule-Based Detection: Flags repeated failed logins, successful logins following repeated failures, and events involving configured suspicious processes.
